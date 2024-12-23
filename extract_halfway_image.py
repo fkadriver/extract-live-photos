@@ -57,5 +57,5 @@ def find_and_process_videos(directory):
 # Example usage
 if __name__ == "__main__":
     # Specify the directory containing the videos
-    directory = "/path/to/your/video/directory"
-    find_and_process_videos(directory)
+    video_directory = "/home/scott/git/live-photo-extract/immich-library/library"
+    find_and_process_videos(video_directory)
