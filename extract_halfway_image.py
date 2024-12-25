@@ -24,6 +24,7 @@ def extract_halfway_image(video_path, output_image_path):
             halfway_time = video_duration / 2
             # copy the source to the output
             video_output = video_path.replace('immich-library','output')
+            os.makedirs(os.path.dirname(video_output), exist_ok=True)
             shutil.copy(video_path, video_output)
 
             # Get the frame at the halfway point
@@ -62,5 +63,4 @@ def find_and_process_videos(directory):
 if __name__ == "__main__":
     # Specify the directory containing the videos
     video_dir = "/home/scott/git/live-photo-extract/immich-library/library/**"
-    output_dir = "/home/scott/git/live-photo-extract/output/"
     find_and_process_videos(video_dir)
