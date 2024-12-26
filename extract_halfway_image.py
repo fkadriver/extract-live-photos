@@ -2,6 +2,7 @@ import os
 import glob
 import shutil
 from moviepy import VideoFileClip
+import pprint as pp
 
 def extract_halfway_image(video_path, output_image_path):
     """
@@ -33,6 +34,7 @@ def extract_halfway_image(video_path, output_image_path):
             # Save the frame as an image
             from PIL import Image
             img = Image.fromarray(frame)
+            img._exif = clip.reader.infos['metadata']
             img.save(output_image_path)
             print(f"Image saved at {output_image_path}")
         else:
@@ -62,5 +64,5 @@ def find_and_process_videos(directory):
 # Example usage
 if __name__ == "__main__":
     # Specify the directory containing the videos
-    video_dir = "/home/scott/git/live-photo-extract/immich-library/library/**"
+    video_dir = "/home/scott/git/live-photo-extract/immich-library/library/scott/2024/10/26/**"
     find_and_process_videos(video_dir)
