@@ -50,7 +50,7 @@ def copy_exif_info(video_path, image_path):
             for tag, value in metadata.items():
                 tag_name = TAGS.get(tag, tag)
                 exif_dict[tag_name] = value
-            img.save(image_path, exif=exif_dict)
+            img.save(image_path, exif=bytes(exif_dict))
             print(f"EXIF data copied to {image_path}")
     except Exception as e:
         print(f"Error copying EXIF data for {video_path}: {e}")
@@ -85,8 +85,8 @@ def process_video_files(input_dir, output_dir):
                         copy_exif_info(file_path, image_path)
 
 def main():
-    input_dir = '/home/scott/git/live-photo-extract/immich-library/library/scott/2024/10/26/'  # Replace with your input directory
-    output_dir = '/home/scott/git/live-photo-extract/output/2024/10/26/'  # Replace with your output directory
+    input_dir = '//home/scott/git/live-photo-extract/immich-library/library'  # Replace with your input directory
+    output_dir = '/home/scott/git/live-photo-extract/output/'  # Replace with your output directory
     process_video_files(input_dir, output_dir)
 
 if __name__ == "__main__":
